@@ -6,7 +6,7 @@ def convert_to_si(radius,mass):
 import pandas as pd
 import csv
 import plotly.express as px
-import matplotlib as plt
+
 f=pd.read_csv('star_with_gravity.csv')
 rows=[]
 star_data_rows = rows[1:]
@@ -29,6 +29,7 @@ for index,name in enumerate(star_name):
   print(g)
   
   star_gravity.append(g)
+  
 final_dict={}
 
 for index,star_data in enumerate(star_data_rows):
@@ -36,20 +37,17 @@ for index,star_data in enumerate(star_data_rows):
   gravity=convert_to_si(radius,mass)
   try:
     if gravity>100 and gravity<350:
-      features_list.append('gravity')
+      features_list.append("gravity")
   except:
     pass
   
   try:
-    if star_data[3]>=100:
+    if star_data[3]<=100:
       features_list.append("keep")
   except:
     pass  
-
-
-
-
   final_dict[index]=features_list
 
 print(final_dict)
   
+f.to_csv('a.csv')
