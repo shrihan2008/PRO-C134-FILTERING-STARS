@@ -21,6 +21,7 @@ for i in star_data:
   mass.append(star_data[3])
   radius.append(star_data[4])
   name1.append(star_data[1])
+  gravity.apped(star_data[5])
 
 star_gravity=[]
 
@@ -42,7 +43,7 @@ for index,star_data in enumerate(star_data_rows):
     pass
   
   try:
-    if star_data[3]<=100:
+    if star_data[2]<=100:
       features_list.append("keep")
   except:
     pass  
